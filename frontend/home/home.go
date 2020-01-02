@@ -27,7 +27,7 @@ func mainHome(r *request.Request) (request.Response, error) {
 	if err != nil {
 		return nil, err
 	}
-	probs, err := problems.List(r.Request.Context(), problems.ListArgs{}, problems.Problems(subs.ProblemIDs()...))
+	probs, err := problems.List(r.Request.Context(), problems.ListArgs{WithTests: problems.TestsGroups}, problems.Problems(subs.ProblemIDs()...))
 	if err != nil {
 		return nil, err
 	}
